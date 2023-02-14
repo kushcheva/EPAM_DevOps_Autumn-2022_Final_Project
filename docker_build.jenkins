@@ -1,0 +1,35 @@
+pipeline {
+    agent { 
+        label 'my_server_dev'
+        }
+    environment {
+        dockerhub=credentials('dockerhub_kushcheva')
+    } 
+        
+    stages {  
+        stage("Create docker image on my_server_dev node") {
+            steps {
+                echo " ============== Start building image =================="
+                sh 'docker build -f Dockerfile -t kushcheva/fp_app:$BUILD_NUMBER . '
+                }
+        }
+        
+        stage("Docker push") {
+            steps {
+                echo " ============== Start pushing image =================="
+                sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
+                sh 'docker push kushcheva/fp_app:$BUILD_NUMBER'    
+                }
+        }
+    
+        stage("Run Container on web server") {
+            steps {
+                echo " ============== run container =================="
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker rm $(docker ps -a -f status=exited -f status=created -q)'
+                sh 'docker rmi -f $(docker images -a -q)'
+                sh 'docker run -d -p 5000:5000 kushcheva/fp_app:$BUILD_NUMBER'
+             }
+        }   
+    } 
+  }

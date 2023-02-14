@@ -7,7 +7,7 @@ provider "aws" {
 resource "aws_default_vpc" "default" {} # This need to be added since AWS Provider v4.29+ to get VPC id
 
 resource "aws_instance" "my_server_dev" {
-  ami                    = "ami-06c39ed6b42908a36"
+  ami                    = "ami-0d1ddd83282187d18"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.my_webserver.id]
   key_name  = aws_key_pair.serversforfp.id
@@ -20,7 +20,7 @@ resource "aws_instance" "my_server_dev" {
 }
 
 resource "aws_instance" "my_server_prod" {
-  ami                    = "ami-06c39ed6b42908a36"
+  ami                    = "ami-0d1ddd83282187d18"
   instance_type          = "t2.micro"
   vpc_security_group_ids = [aws_security_group.my_webserver.id]
   key_name  = aws_key_pair.serversforfp.id
@@ -40,7 +40,7 @@ resource "aws_security_group" "my_webserver"  {
 
 
   dynamic "ingress" {
-    for_each = ["80", "443", "22"]
+    for_each = ["80", "443", "22", "5000"]
     content {
       from_port   = ingress.value
       to_port     = ingress.value

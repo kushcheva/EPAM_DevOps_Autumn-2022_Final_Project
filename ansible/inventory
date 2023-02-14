@@ -1,0 +1,6 @@
+[my_server_dev]
+ubuntu@ec2-3-75-239-67.eu-central-1.compute.amazonaws.com
+[my_server_prod]
+ubuntu@ec2-3-122-237-162.eu-central-1.compute.amazonaws.com
+
+
