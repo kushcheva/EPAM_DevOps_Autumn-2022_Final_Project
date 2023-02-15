@@ -29,7 +29,7 @@ Create my simple project Python Flask web application fp_app.py  and running tes
 
 Running on node my_server_dev Jenkins pipeline which create our Docker build and pushes it to Dockerhub registry. The sourse is Github. 
 
-Then run container `docker run -d -p 5000:5000 kushcheva/fp_app:$BUILD_NUMBER`
+Then run container `docker run -d -p 5000:5000 kushcheva/fp_app:$BUILD_NUMBER`. Make sure no one previous containers and images on our machine. The latest image is pulling from Dockerhub.
 
 If it is work properly we will deploy latest build by pulling from Dockerhub on my_server_prod.
 
