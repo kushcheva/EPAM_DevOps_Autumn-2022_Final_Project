@@ -1,7 +1,7 @@
 
 # Final project CI/CD
 
-Example of integration and delivery of the flask application by using the jenkins pipeline to producrion server. 
+Example of integration and delivery of the flask application by using the jenkins pipeline to production server. 
 
 IT stack:
 
