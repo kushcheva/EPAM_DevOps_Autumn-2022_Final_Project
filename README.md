@@ -3,6 +3,9 @@
 
 Example of integration and delivery of the flask application by using the jenkins pipeline to production server. 
 
+![image](https://user-images.githubusercontent.com/96500223/219481001-60e4f7ea-7bf7-46c4-a67e-18bc68856f3e.png)
+
+
 IT stack:
 
 1. Python Flask framework.
