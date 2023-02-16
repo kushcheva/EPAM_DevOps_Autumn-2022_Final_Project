@@ -2,6 +2,7 @@ pipeline {
     agent { 
         label 'my_server_dev'
         }
+    triggers { pollSCM('* * * * *') }
     environment {
         dockerhub=credentials('dockerhub_kushcheva')
     } 
