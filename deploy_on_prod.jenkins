@@ -1,0 +1,19 @@
+pipeline {
+    agent { 
+        label 'my_server_prod'
+        }
+        environment {
+        dockerhub=credentials('dockerhub_kushcheva')
+    } 
+    stages {  
+        stage("Run container on prod server") {
+            steps {
+                echo " ============== run container =================="
+                sh 'docker stop $(docker ps -a -q)'
+                sh 'docker rm $(docker ps -a -f status=exited -f status=created -q)'
+                sh 'docker rmi -f $(docker images -a -q)'
+                sh 'docker run -d -p 5000:5000 kushcheva/fp_app'
+            }
+        }
+    }   
+ } 
