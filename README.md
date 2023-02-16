@@ -31,7 +31,7 @@ Running on node my_server_dev Jenkins pipeline which create our Docker build and
 
 Then run container `docker run -d -p 5000:5000 kushcheva/fp_app:$BUILD_NUMBER`. Make sure there are no one previous containers and images on our machine. The latest image is pulling from Dockerhub.
 
-If it is work properly we will deploy latest build by pulling from Dockerhub on my_server_prod.
+If it is work properly we will deploy latest build by pulling from Dockerhub on my_server_prod and we use separated pipeline not to mix development  and production environments. The development pipeline will start by automatic trigger when the previous pipeline have done succesfully.
 
 ![App Screenshot](https://github.com/kushcheva/EPAM_DevOps_Autumn-2022_Final_Project/blob/main/screenshots/3.png?raw=true)
 
