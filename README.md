@@ -32,11 +32,11 @@ Create my simple project Python Flask an web application fp_app.py and running t
 
 Running on node my_server_dev Jenkins pipeline which create our Docker build and pushes it to Dockerhub registry. The sourse is Github. 
 
-Then run container `docker run -d -p 5000:5000 kushcheva/fp_app`. Make sure there are no one previous containers and images on our machine. The latest image is pulling from Dockerhub.
+Then run container `docker run -d -p 5000:5000 kushcheva/fp_app`. Make sure there are no previous containers and images on our machine. The latest image is pulling from Dockerhub.
 
 
 ![App Screenshot](https://github.com/kushcheva/EPAM_DevOps_Autumn-2022_Final_Project/blob/main/screenshots/3.png?raw=true)
 
 
-If it is works properly we will deploy latest build by pulling from Dockerhub on my_server_prod and we use separated pipeline not to mix development and production environments. The deployment pipeline will start by automatic trigger when the previous pipeline have done successfully.
+If it works properly we will deploy latest build by pulling from Dockerhub on my_server_prod and we use separated pipeline not to mix development and production environments. The deployment pipeline will start by automatic trigger when the previous pipeline have done successfully.
 
