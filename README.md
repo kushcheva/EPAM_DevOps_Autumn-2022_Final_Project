@@ -41,3 +41,6 @@ Then run container `docker run -d -p 5000:5000 kushcheva/fp_app`. Make sure ther
 If it works properly we will deploy latest build by pulling from Dockerhub on my_server_prod. We use separated pipeline not to mix development and production environments. Deployment pipeline will start by automatic trigger after the previous pipeline will done successfully.
 
 As a result we have a working web Flask application.
+
+![image](https://user-images.githubusercontent.com/96500223/221712577-4b72999c-e32c-4738-ae27-4e79cd0cfd36.png)
+
