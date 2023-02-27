@@ -1,7 +1,7 @@
 
 # Final project CI/CD
 
-Example of integration and delivery of the flask application by using the jenkins pipeline to production server. 
+Example of integration and delivery of the Flask application by using the Jenkins pipeline to production server. 
 
 ![image](https://user-images.githubusercontent.com/96500223/219481001-60e4f7ea-7bf7-46c4-a67e-18bc68856f3e.png)
 
@@ -20,23 +20,24 @@ IT stack:
 
 ## Installation
 
-Create my simple project Python Flask an web application fp_app.py and running test to make sure with working code.
+Create a web application fp_app.py with Python Flask and run test to make sure that code works.
 
 ![App Screenshot](https://github.com/kushcheva/EPAM_DevOps_Autumn-2022_Final_Project/blob/main/screenshots/1.png?raw=true)
 
-Сreate 2 instances: my_server_dev and my_server_prod with configurations of security group, ssh key and opened ports by using Terraform.
+Using Terraform create 2 instances: my_server_dev and my_server_prod with configurations of security group, ssh key and opened ports.
 
 ![App Screenshot](https://github.com/kushcheva/EPAM_DevOps_Autumn-2022_Final_Project/blob/main/screenshots/2.png?raw=true)
 
 ## Deployment
 
-Running on node my_server_dev Jenkins pipeline which create our Docker build and pushes it to Dockerhub registry. The sourse is Github. 
+Run Jenkins pipeline on node my_server_dev, which create our Docker build and push it to Docker hub registry. The application source is Github. 
 
-Then run container `docker run -d -p 5000:5000 kushcheva/fp_app`. Make sure there are no previous containers and images on our machine. The latest image is pulling from Dockerhub.
+Then run container `docker run -d -p 5000:5000 kushcheva/fp_app`. Make sure there are no previous containers and images on current machine. The latest image should be pulled from Dockerhub.
 
 
 ![App Screenshot](https://github.com/kushcheva/EPAM_DevOps_Autumn-2022_Final_Project/blob/main/screenshots/3.png?raw=true)
 
 
-If it works properly we will deploy latest build by pulling from Dockerhub on my_server_prod and we use separated pipeline not to mix development and production environments. The deployment pipeline will start by automatic trigger when the previous pipeline have done successfully.
+If it works properly we will deploy latest build by pulling from Dockerhub on my_server_prod. We use separated pipeline not to mix development and production environments. Deployment pipeline will start by automatic trigger after the previous pipeline will done successfully.
 
+As a result we have a working web Flask application.
